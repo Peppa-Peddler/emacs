@@ -2,10 +2,9 @@
 (set-frame-parameter (selected-frame) 'alpha '(90 90))
 (add-to-list 'default-frame-alist '(alpha 90 90))
 
-(setq indent-tabs-mode t)
-(setq tab-width 4)
-
 (setq inhibit-startup-message t)
+
+(setq-default indent-tabs-mode nil)
 
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
@@ -14,7 +13,7 @@
 
 (menu-bar-mode -1)            ; Disable the menu bar
 
-(set-face-attribute 'default nil :font "Fira Code" :height 120)
+(set-face-attribute 'default nil :font "Fira Code" :height 110)
 
 ;; Custom file
 (defvar alpha2phi/custom-file (expand-file-name "custom.el" user-emacs-directory))

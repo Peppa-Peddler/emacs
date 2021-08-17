@@ -1,6 +1,6 @@
 ;; Setting transparency, not working like urxvt
-(set-frame-parameter (selected-frame) 'alpha '(90 90))
-(add-to-list 'default-frame-alist '(alpha 90 90))
+(set-frame-parameter (selected-frame) 'alpha '(95 95))
+(add-to-list 'default-frame-alist '(alpha 95 95))
 
 (setq inhibit-startup-message t)
 
@@ -9,11 +9,11 @@
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
 (tooltip-mode -1)           ; Disable tooltips
-(set-fringe-mode 10)        ; Give some breathing room
+(set-fringe-mode 2)        ; Give some breathing room
 
 (menu-bar-mode -1)            ; Disable the menu bar
 
-(set-face-attribute 'default nil :font "Fira Code" :height 110)
+(set-face-attribute 'default nil :font "Noto Sans Mono" :height 125)
 
 ;; Custom file
 (defvar alpha2phi/custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -38,15 +38,25 @@
 ;; Emacs customizations
 (setq custom-file                        alpha2phi/custom-file
       make-backup-files                  nil
-      display-line-numbers-type          'relative
+      ;display-line-numbers-type          'absolute
       ; inhibit-startup-message            t
       use-package-always-ensure          t)
 
 ;; Keep buffers automatically up to date
 (global-auto-revert-mode t)
 
+(use-package display-line-numbers
+  :ensure nil
+  :config
+  (set-face-attribute 'line-number-current-line nil
+			:background "#7fffd4"
+			:foreground "black"
+			:weight 'bold)
+  :hook
+  ((prog-mode yaml-mode systemd-mode) . display-line-numbers-mode))
+
 ;; Display line number
-(global-display-line-numbers-mode)
+;(global-display-line-numbers-mode)
 
 ;; Show matching parentheses
 (show-paren-mode 1)
@@ -59,11 +69,10 @@
 ;; Delete trailing whitespace before save
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(global-display-line-numbers-mode 1)
 (electric-indent-mode 1)
 (electric-pair-mode)
 (ido-mode t)
-(global-hl-line-mode +1)
+;(global-hl-line-mode +1)
 
 (provide 'base)
 

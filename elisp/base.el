@@ -13,7 +13,7 @@
 
 (menu-bar-mode -1)            ; Disable the menu bar
 
-(set-face-attribute 'default nil :font "Noto Sans Mono" :height 125)
+(set-face-attribute 'default nil :font "Noto Sans Mono" :height 105)
 
 ;; Custom file
 (defvar alpha2phi/custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -75,4 +75,3 @@
 ;(global-hl-line-mode +1)
 
 (provide 'base)
-

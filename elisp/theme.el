@@ -3,9 +3,9 @@
   ;:init
   ;(load-theme 'spacemacs-dark t))
 
-(use-package zenburn-theme
+(use-package molokai-theme
   :defer t
   :init
-  (load-theme 'zenburn t))
+  (load-theme 'molokai t))
 
 (provide 'theme)

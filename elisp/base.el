@@ -2,9 +2,32 @@
 (set-frame-parameter (selected-frame) 'alpha '(95 95))
 (add-to-list 'default-frame-alist '(alpha 95 95))
 
+(use-package editorconfig
+  :ensure t
+  :config
+  (editorconfig-mode 1))
+
 (setq inhibit-startup-message t)
 
-(setq-default indent-tabs-mode nil)
+;;(setq-default indent-tabs-mode nil)
+
+(defun coding-hooks ()
+  (setq c-basic-offset 4)
+  (setq-default tab-width 4)
+  (c-set-offset 'substatement-open 0)
+  (c-set-offset 'brace-list-open 0)
+  (c-set-offset 'block-open 0)
+  (c-set-offset 'class-open 0)
+  (c-set-offset 'inline-open 0)
+  (c-toggle-hungry-state 1)
+  (local-set-key "\M-a" 'paren-backward-sexp)
+  (local-set-key "\M-e" 'paren-forward-sexp)
+  (local-set-key "\C-\M-h" 'hs-hide-all)
+  (hs-minor-mode t)
+  (abbrev-mode 0)
+  (add-hook 'before-save-hook 'coding-system-hook)
+  )
+(add-hook 'c++-mode-hook 'coding-hooks)
 
 (scroll-bar-mode -1)        ; Disable visible scrollbar
 (tool-bar-mode -1)          ; Disable the toolbar
@@ -13,7 +36,7 @@
 
 (menu-bar-mode -1)            ; Disable the menu bar
 
-(set-face-attribute 'default nil :font "Noto Sans Mono" :height 105)
+(set-face-attribute 'default nil :font "NotoSansMono Nerd Font" :height 127)
 
 ;; Custom file
 (defvar alpha2phi/custom-file (expand-file-name "custom.el" user-emacs-directory))
@@ -56,7 +79,7 @@
   ((prog-mode yaml-mode systemd-mode) . display-line-numbers-mode))
 
 ;; Display line number
-;(global-display-line-numbers-mode)
+;; (global-display-line-numbers-mode)
 
 ;; Show matching parentheses
 (show-paren-mode 1)

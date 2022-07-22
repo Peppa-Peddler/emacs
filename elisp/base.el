@@ -1,6 +1,6 @@
 ;; Setting transparency, not working like urxvt
-(set-frame-parameter (selected-frame) 'alpha '(80 80))
-(add-to-list 'default-frame-alist '(alpha 80 80))
+(set-frame-parameter (selected-frame) 'alpha '(95 95))
+(add-to-list 'default-frame-alist '(alpha 95 95))
 
 (use-package editorconfig
   :ensure t

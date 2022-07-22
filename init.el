@@ -7,6 +7,9 @@
 ;; Theme
 (require 'theme)
 
+;; Dashboard
+(require 'opening)
+
 ;; Evil Mode
 ;; (require 'vim)
 

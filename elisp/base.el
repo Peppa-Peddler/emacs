@@ -1,6 +1,6 @@
 ;; Setting transparency, not working like urxvt
-(set-frame-parameter (selected-frame) 'alpha '(95 95))
-(add-to-list 'default-frame-alist '(alpha 95 95))
+(set-frame-parameter (selected-frame) 'alpha '(80 80))
+(add-to-list 'default-frame-alist '(alpha 80 80))
 
 (use-package editorconfig
   :ensure t
@@ -13,20 +13,7 @@
 
 (defun coding-hooks ()
   (setq c-basic-offset 4)
-  (setq-default tab-width 4)
-  (c-set-offset 'substatement-open 0)
-  (c-set-offset 'brace-list-open 0)
-  (c-set-offset 'block-open 0)
-  (c-set-offset 'class-open 0)
-  (c-set-offset 'inline-open 0)
-  (c-toggle-hungry-state 1)
-  (local-set-key "\M-a" 'paren-backward-sexp)
-  (local-set-key "\M-e" 'paren-forward-sexp)
-  (local-set-key "\C-\M-h" 'hs-hide-all)
-  (hs-minor-mode t)
-  (abbrev-mode 0)
-  (add-hook 'before-save-hook 'coding-system-hook)
-  )
+  (setq-default tab-width 4))
 (add-hook 'c++-mode-hook 'coding-hooks)
 
 (scroll-bar-mode -1)        ; Disable visible scrollbar
@@ -96,5 +83,8 @@
 (electric-pair-mode)
 (ido-mode t)
 ;(global-hl-line-mode +1)
+
+(define-key global-map [(insert)] nil)
+(define-key global-map [(control insert)] 'overwrite-mode)
 
 (provide 'base)
